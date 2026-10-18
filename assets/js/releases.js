@@ -202,6 +202,7 @@ window.BR_ARTISTS = [
     alt: "Glass Canons' light-up marquee letters G and C",
     links: [
       { label: "Apple Music", url: "https://music.apple.com/us/artist/glass-canons/1130575273" },
+      { label: "Amazon Music", url: "https://music.amazon.com/artists/B0GH86FC5H" },
       { label: "Facebook", url: "https://www.facebook.com/glasscanons" }
     ]
   },
@@ -217,6 +218,7 @@ window.BR_ARTISTS = [
       { label: "StormJarl.com", url: "https://stormjarl.com" },
       { label: "Spotify", url: "https://open.spotify.com/artist/1Ej916sW5GaDQGDkh1p8Cb" },
       { label: "Apple Music", url: "https://music.apple.com/us/artist/stormjarl/1861394525" },
+      { label: "Amazon Music", url: "https://music.amazon.com/artists/B0G6YX9MX2" },
       { label: "YouTube", url: "https://www.youtube.com/@storm-jarl" }
     ]
   },
@@ -227,7 +229,8 @@ window.BR_ARTISTS = [
     alt: "Threads cover art for Kilynn Ross",
     about: "Kilynn Ross released the album Echoes and a run of singles in 2026. Threads is coming soon.",
     links: [
-      { label: "Spotify", url: "https://open.spotify.com/artist/2rikNqHi0MMZfLOFGy0sNp" }
+      { label: "Spotify", url: "https://open.spotify.com/artist/2rikNqHi0MMZfLOFGy0sNp" },
+      { label: "Amazon Music", url: "https://music.amazon.com/artists/B0H15JT7BV" }
     ]
   }
 ];
