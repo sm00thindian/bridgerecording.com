@@ -169,3 +169,8 @@ noscript p{color:var(--muted)}
 .about-photo{margin:6px 0 0}
 .about-photo img{width:100%;border-radius:var(--r);border:1px solid var(--line)}
 @media (max-width:860px){.about-grid{grid-template-columns:1fr}.about-photo{max-width:420px}}
+
+/* Artist photo with a small logo overlay (e.g. StormJarl) */
+.art-wrap{position:relative;line-height:0}
+.art-wrap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(180deg,transparent,rgba(8,7,6,.82));pointer-events:none}
+.art-badge{position:absolute;left:16px;bottom:14px;z-index:1;height:30px;width:auto;max-width:70%;filter:drop-shadow(0 2px 6px rgba(0,0,0,.7))}

@@ -19,9 +19,9 @@
       return '<a href="' + esc(l.url) + '"' + (ext ? ' target="_blank" rel="noopener"' : ' class="link-internal"') + '>' + esc(l.label) + '</a>';
     }).join("") + "</p>";
   }
-  function img(src, src2x, aspect, alt, cls) {
+  function img(src, src2x, aspect, alt, cls, w2x) {
     var wh = aspect === "4/5" ? ' width="600" height="750"' : aspect === "4/3" ? ' width="600" height="450"' : ' width="600" height="600"';
-    return '<img class="' + cls + '" src="' + esc(src) + '"' + (src2x ? ' srcset="' + esc(src) + ' 600w, ' + esc(src2x) + ' ' + (aspect === "4/5" ? "1080" : "1200") + 'w" sizes="(max-width:640px) 92vw, 360px"' : "") +
+    return '<img class="' + cls + '" src="' + esc(src) + '"' + (src2x ? ' srcset="' + esc(src) + ' 600w, ' + esc(src2x) + ' ' + (w2x || (aspect === "4/5" ? "1080" : "1200")) + 'w" sizes="(max-width:640px) 92vw, 360px"' : "") +
       wh + (aspect ? ' style="aspect-ratio:' + esc(aspect) + '"' : "") + ' alt="' + esc(alt) + '" loading="lazy" decoding="async">';
   }
   function art(r) {
@@ -61,8 +61,9 @@
       links(r.links, r) + trackGrid(r) + "</div></li>";
   }
   function artistCard(a) {
-    var pic = a.image ? img(a.image, a.image2x, a.imageAspect, a.alt || a.name, a.imageStyle === "logo" ? "art art-logo" : "art")
+    var pic = a.image ? img(a.image, a.image2x, a.imageAspect, a.alt || a.name, a.imageStyle === "logo" ? "art art-logo" : "art", a.image2xW)
                       : '<div class="art art-text" aria-hidden="true"><span>' + esc(initials(a.name)) + "</span></div>";
+    if (a.image && a.badge) pic = '<div class="art-wrap">' + pic + '<img class="art-badge" src="' + esc(a.badge) + '" alt="" aria-hidden="true" width="3034" height="792" loading="lazy" decoding="async"></div>';
     var latest = R.filter(function (r) { return r.artist === a.name && r.group === "label"; })
       .map(function (r) {
         var t = "<em>" + esc(r.title) + "</em>";

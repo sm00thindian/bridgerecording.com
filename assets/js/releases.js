@@ -209,8 +209,9 @@ window.BR_ARTISTS = [
     name: "StormJarl",
     tagline: "Dark Nordic Blues.",
     about: "Modern rock riffs meet the ritual pulse of the North: war drums, chanted voices and a low end you feel in your chest.",
-    image: "assets/img/stormjarl-lockup-white-red.svg", imageStyle: "logo",
-    alt: "StormJarl logo",
+    image: "assets/img/stormjarl-live-sq-600.webp", image2x: "assets/img/stormjarl-live-sq-1080.webp", image2xW: 1080,
+    alt: "StormJarl on stage",
+    badge: "assets/img/stormjarl-lockup-white-red.svg",   // small logo shown over the photo (optional)
     links: [
       { label: "▶ Early listen: Level Up (V12Kid)", url: "work.html#level-up-v12kid" },
       { label: "StormJarl.com", url: "https://stormjarl.com" },
