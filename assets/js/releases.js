@@ -209,8 +209,8 @@ window.BR_ARTISTS = [
     name: "StormJarl",
     tagline: "Dark Nordic Blues.",
     about: "Modern rock riffs meet the ritual pulse of the North: war drums, chanted voices and a low end you feel in your chest.",
-    image: "assets/img/stormjarl-level-up-600.webp",
-    alt: "Level Up EP cover by StormJarl",
+    image: "assets/img/stormjarl-lockup-white-red.svg", imageStyle: "logo",
+    alt: "StormJarl logo",
     links: [
       { label: "▶ Early listen: Level Up (V12Kid Dance Mix)", url: "work.html#level-up-v12kid" },
       { label: "StormJarl.com", url: "https://stormjarl.com" },
