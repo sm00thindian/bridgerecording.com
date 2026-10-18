@@ -20,12 +20,12 @@
     }).join("") + "</p>";
   }
   function img(src, src2x, aspect, alt, cls) {
-    var wh = aspect === "4/5" ? ' width="600" height="750"' : ' width="600" height="600"';
+    var wh = aspect === "4/5" ? ' width="600" height="750"' : aspect === "4/3" ? ' width="600" height="450"' : ' width="600" height="600"';
     return '<img class="' + cls + '" src="' + esc(src) + '"' + (src2x ? ' srcset="' + esc(src) + ' 600w, ' + esc(src2x) + ' ' + (aspect === "4/5" ? "1080" : "1200") + 'w" sizes="(max-width:640px) 92vw, 360px"' : "") +
       wh + (aspect ? ' style="aspect-ratio:' + esc(aspect) + '"' : "") + ' alt="' + esc(alt) + '" loading="lazy" decoding="async">';
   }
   function art(r) {
-    if (r.cover) return img(r.cover, r.cover2x, r.coverAspect, r.artist + " – " + r.title + " artwork", "art");
+    if (r.cover) return img(r.cover, r.cover2x, r.coverAspect, r.alt || (r.title + " cover art by " + r.artist), "art");
     return '<div class="art art-text" aria-hidden="true"><span>' + esc(initials(r.artist)) + "</span></div>";
   }
   function card(r) {
@@ -53,7 +53,7 @@
   }
   function newsItem(r) {
     return '<li class="news-item' + (r.cover ? " has-thumb" : "") + '" id="news-' + esc(r.id) + '"><div class="news-date">' + esc(r.status === "early" ? "Early listen" : (fmtDate(r) || (r.status === "upcoming" ? "Coming soon" : "Out now"))) + "</div>" +
-      (r.cover ? '<div class="news-thumb">' + img(r.cover, null, r.coverAspect, r.artist + " – " + r.title + " artwork", "") + "</div>" : "") +
+      (r.cover ? '<div class="news-thumb">' + img(r.cover, null, r.coverAspect, r.alt || (r.title + " cover art by " + r.artist), "") + "</div>" : "") +
       '<div class="news-body"><h3>' + esc(r.artist) + " · <em>" + esc(r.title) + "</em>" + (r.kind ? ' <span class="kind">' + esc(r.kind) + "</span>" : "") + "</h3>" +
       (r.status === "early" ? '<p class="credit">' + esc(r.credit) + (r.credit2 ? " · " + esc(r.credit2) : "") + "</p><p>" + esc(fmtDate(r)) + "</p>" : "") +
       (r.blurb ? "<p>" + esc(r.blurb) + "</p>" : "") +
@@ -61,7 +61,7 @@
       links(r.links, r) + trackGrid(r) + "</div></li>";
   }
   function artistCard(a) {
-    var pic = a.image ? img(a.image, null, a.imageAspect, a.name, "art")
+    var pic = a.image ? img(a.image, a.image2x, a.imageAspect, a.alt || a.name, a.imageStyle === "logo" ? "art art-logo" : "art")
                       : '<div class="art art-text" aria-hidden="true"><span>' + esc(initials(a.name)) + "</span></div>";
     var latest = R.filter(function (r) { return r.artist === a.name && r.group === "label"; })
       .map(function (r) {

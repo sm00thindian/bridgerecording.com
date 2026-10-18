@@ -23,6 +23,7 @@
     links     list of { label, url } streaming / video links (optional)
     featured  true = also show on the Home page (optional)
     cover2x   larger version of the cover for sharp screens (optional)
+    alt       short description of the art for people using screen readers (optional)
     coverAspect  "4/5" for portrait art such as teasers (default square)
     tracks    list of { n, title, cover } shown as a small track grid on News (optional)
     presave   pre-save / smart link URL. Leave "" until it exists (nothing shows while empty)
@@ -35,6 +36,7 @@ window.BR_RELEASES = [
     credit: "Mixed and Mastered by Bridge Recording", credit2: "In collaboration with DJ V12Kid", group: "label",
     audio: "assets/audio/stormjarl-level-up-v12kid-mix.mp3",
     cover: "assets/img/stormjarl-level-up-teaser-600.webp", cover2x: "assets/img/stormjarl-level-up-teaser-1080.webp", coverAspect: "4/5",
+    alt: "Level Up teaser art for StormJarl's new EP",
     blurb: "An early listen from the Level Up EP: StormJarl's climbing riff reworked for the dance floor with DJ V12Kid.",
     links: [
       { label: "StormJarl.com", url: "https://stormjarl.com" },
@@ -48,6 +50,7 @@ window.BR_RELEASES = [
     id: "harvest", artist: "Glass Canons", title: "Harvest", kind: "Album",
     status: "upcoming", date: "2026-11-20",
     cover: "assets/img/glass-canons-harvest-600.webp", cover2x: "assets/img/glass-canons-harvest-1200.webp",
+    alt: "Harvest cover: a lone figure in a cracked, glowing field as a lightning storm rolls in",
     presave: "",   // PLACEHOLDER: add the DistroKid HyperFollow link when it exists
     tracks: [
       { n: 1, title: "What You Sow", cover: "assets/img/harvest-tracks/01-what-you-sow-300.webp" },
@@ -74,7 +77,8 @@ window.BR_RELEASES = [
   {
     id: "level-up", artist: "StormJarl", title: "Level Up", kind: "EP",
     status: "upcoming", date: "2026-11-20", tentative: true,
-    cover: "assets/img/stormjarl-level-up-teaser-600.webp", cover2x: "assets/img/stormjarl-level-up-teaser-1080.webp", coverAspect: "4/5",
+    cover: "assets/img/stormjarl-level-up-600.webp", cover2x: "assets/img/stormjarl-level-up-1200.webp",
+    alt: "Level Up cover: a glowing stone tower climbing into a starry night sky",
     presave: "",   // PLACEHOLDER: pre-save link not created yet
     tracks: [],    // PLACEHOLDER: track list not confirmed yet (add { n, title } entries)
     credit: "A Bridge Recording release", group: "label",
@@ -89,7 +93,8 @@ window.BR_RELEASES = [
     id: "threads", artist: "Kilynn Ross", title: "Threads",
     status: "upcoming", dateText: "Coming soon",
     date: "",      // PLACEHOLDER: release date unknown. Set "YYYY-MM-DD" when announced
-    cover: "assets/img/kilynn-ross-threads-teaser-600.webp", cover2x: "assets/img/kilynn-ross-threads-teaser-1080.webp", coverAspect: "4/5",
+    cover: "assets/img/kilynn-ross-threads-600.webp", cover2x: "assets/img/kilynn-ross-threads-1200.webp",
+    alt: "Threads cover: a lone fence post on a hillside at sunset under a violet sky",
     presave: "",   // PLACEHOLDER: pre-save link not created yet
     credit: "A Bridge Recording release", group: "label",
     blurb: "New music from Kilynn Ross is on the way.",
@@ -103,6 +108,8 @@ window.BR_RELEASES = [
   {
     id: "get-it-right", artist: "Glass Canons", title: "Get It Right", kind: "Single",
     status: "out", date: "2026-08-14",
+    cover: "assets/img/glass-canons-get-it-right-600.webp", cover2x: "assets/img/glass-canons-get-it-right-1200.webp",
+    alt: "Get It Right cover: a lone figure walks a cracked desert road toward a stormy sunset",
     credit: "A Bridge Recording release", group: "label",
     blurb: "The first taste of Harvest, plus a live version with the crowd shouting it back.",
     links: [
@@ -164,7 +171,9 @@ window.BR_RELEASES = [
   {
     id: "new-england", artist: "Sunday Muse", title: "New England",
     status: "out", credit: "Mixed and Mastered by Bridge Recording", group: "client",
-    audio: "assets/audio/sunday-muse-new-england.mp3"
+    audio: "assets/audio/sunday-muse-new-england.mp3",
+    cover: "assets/img/sunday-muse-new-england-600.webp",
+    alt: "New England cover: a deep blue watercolor moon on cream paper"
   },
   {
     id: "sing-along", artist: "Frankie Barranco", title: "Sing Along",
@@ -189,7 +198,8 @@ window.BR_ARTISTS = [
     name: "Glass Canons",
     tagline: "Heartland garage-blues with a neo-psychedelic haze.",
     about: "Weathered, honest rock with dirt under its nails. The new album, Harvest, is out November 20, 2026.",
-    image: "assets/img/glass-canons-harvest-600.webp",
+    image: "assets/img/glass-canons-marquee-600.webp", image2x: "assets/img/glass-canons-marquee-1200.webp",
+    alt: "Glass Canons' light-up marquee letters G and C",
     links: [
       { label: "Apple Music", url: "https://music.apple.com/us/artist/glass-canons/1130575273" },
       { label: "Facebook", url: "https://www.facebook.com/glasscanons" }
@@ -199,7 +209,8 @@ window.BR_ARTISTS = [
     name: "StormJarl",
     tagline: "Dark Nordic Blues.",
     about: "Modern rock riffs meet the ritual pulse of the North: war drums, chanted voices and a low end you feel in your chest.",
-    image: "assets/img/stormjarl-midnight-circuit-600.webp",
+    image: "assets/img/stormjarl-logo-glow-600.webp", imageStyle: "logo",
+    alt: "StormJarl crest",
     links: [
       { label: "▶ Early listen: Level Up (V12Kid Dance Mix)", url: "work.html#level-up-v12kid" },
       { label: "StormJarl.com", url: "https://stormjarl.com" },
@@ -211,6 +222,8 @@ window.BR_ARTISTS = [
   {
     name: "Kilynn Ross",
     tagline: "Indie folk with a baritone voice and a cinematic streak.",
+    image: "assets/img/kilynn-ross-threads-600.webp",
+    alt: "Threads cover art for Kilynn Ross",
     about: "Kilynn Ross released the album Echoes and a run of singles in 2026. Threads is coming soon.",
     links: [
       { label: "Spotify", url: "https://open.spotify.com/artist/2rikNqHi0MMZfLOFGy0sNp" }

@@ -162,3 +162,10 @@ noscript p{color:var(--muted)}
 .mini a{color:var(--ink)}
 .mini a:hover{color:var(--accent)}
 @media (max-width:640px){.grid-feature .card{flex-direction:column}.grid-feature .art{width:100%;flex:none}.grid-feature h3{font-size:1.35rem}}
+
+/* Image pack (Oct 18) */
+.art-logo{object-fit:contain;padding:22px;background:radial-gradient(circle at 50% 50%,#1a1312,#0b0a09 72%)}
+.about-grid{display:grid;grid-template-columns:minmax(0,44rem) minmax(0,1fr);gap:40px;align-items:start}
+.about-photo{margin:6px 0 0}
+.about-photo img{width:100%;border-radius:var(--r);border:1px solid var(--line)}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}.about-photo{max-width:420px}}
