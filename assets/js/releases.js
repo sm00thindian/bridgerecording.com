@@ -31,7 +31,7 @@
 window.BR_RELEASES = [
   // ---------- Early listen ----------
   {
-    id: "level-up-v12kid", artist: "StormJarl", title: "Level Up (V12Kid Dance Mix)", kind: "Early listen",
+    id: "level-up-v12kid", artist: "StormJarl", title: "Level Up (V12Kid)", kind: "Early listen",
     status: "early", dateText: "Level Up EP out November 20, 2026 (tentative)",
     credit: "Mixed and Mastered by Bridge Recording", credit2: "In collaboration with DJ V12Kid", group: "label",
     audio: "assets/audio/stormjarl-level-up-v12kid-mix.mp3",
@@ -212,7 +212,7 @@ window.BR_ARTISTS = [
     image: "assets/img/stormjarl-lockup-white-red.svg", imageStyle: "logo",
     alt: "StormJarl logo",
     links: [
-      { label: "▶ Early listen: Level Up (V12Kid Dance Mix)", url: "work.html#level-up-v12kid" },
+      { label: "▶ Early listen: Level Up (V12Kid)", url: "work.html#level-up-v12kid" },
       { label: "StormJarl.com", url: "https://stormjarl.com" },
       { label: "Spotify", url: "https://open.spotify.com/artist/1Ej916sW5GaDQGDkh1p8Cb" },
       { label: "Apple Music", url: "https://music.apple.com/us/artist/stormjarl/1861394525" },
