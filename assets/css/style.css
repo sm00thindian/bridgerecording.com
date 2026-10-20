@@ -174,3 +174,21 @@ noscript p{color:var(--muted)}
 .art-wrap{position:relative;line-height:0}
 .art-wrap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(180deg,transparent,rgba(8,7,6,.82));pointer-events:none}
 .art-badge{position:absolute;left:16px;bottom:14px;z-index:1;height:30px;width:auto;max-width:70%;filter:drop-shadow(0 2px 6px rgba(0,0,0,.7))}
+
+/* Streaming links row (per release) */
+.stream{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 2px}
+.stream-label{width:100%;font-size:.78rem;color:var(--dim);letter-spacing:.04em}
+.stream a{font-size:.8rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--muted);white-space:nowrap}
+.stream a:hover{border-color:var(--accent);color:var(--accent)}
+.news-item .stream{margin-top:2px}
+/* Official-site button on artist cards */
+.site-btn{margin:6px 0 10px}
+.btn-sm{padding:8px 16px;font-size:.9rem}
+/* Work/News cards: player + link rows pinned to the card bottom; long blurbs clamped on multi-column layouts */
+.card-foot{margin-top:auto;display:flex;flex-direction:column;gap:2px;padding-top:6px}
+.card-foot .links{margin-top:0}
+@media (min-width:641px){
+  .blurb.clamp:not(.open){display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4;overflow:hidden;text-overflow:ellipsis}
+}
+.more{align-self:flex-start;background:none;border:0;padding:2px 0;margin:-2px 0 4px;font:inherit;font-size:.85rem;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.more:hover,.more:focus-visible{color:var(--ink)}
