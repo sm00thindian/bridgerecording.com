@@ -16,7 +16,7 @@
     credit    the credit line, e.g. "Mixed & Mastered by Bridge Recording"
     credit2   optional second credit line, e.g. "In collaboration with DJ V12Kid"
     group     "client"  = work for other artists
-              "label"   = Glass Canons / StormJarl / Kilynn Ross releases
+              "label"   = GLASS CANONS / StormJarl / Kilynn Ross releases
     audio     path to an mp3 in assets/audio/ (optional, keep under ~10 MB)
     cover     path to a square image in assets/img/ (optional)
     blurb     one or two friendly sentences (optional)
@@ -47,24 +47,24 @@ window.BR_RELEASES = [
 
   // ---------- Upcoming ----------
   {
-    id: "harvest", artist: "Glass Canons", title: "Harvest", kind: "Album",
+    id: "harvest", artist: "GLASS CANONS", title: "HARVEST", kind: "Album",
     status: "upcoming", date: "2026-11-20",
     cover: "assets/img/glass-canons-harvest-600.webp", cover2x: "assets/img/glass-canons-harvest-1200.webp",
-    alt: "Harvest cover: a lone figure in a cracked, glowing field as a lightning storm rolls in",
+    alt: "HARVEST cover: a lone figure in a cracked, glowing field as a lightning storm rolls in",
     presave: "",   // PLACEHOLDER: add the DistroKid HyperFollow link when it exists
     tracks: [
-      { n: 1, title: "What You Sow", cover: "assets/img/harvest-tracks/01-what-you-sow-300.webp" },
-      { n: 2, title: "Get It Right", cover: "assets/img/harvest-tracks/02-get-it-right-300.webp" },
-      { n: 3, title: "Redline", cover: "assets/img/harvest-tracks/03-redline-300.webp" },
-      { n: 4, title: "Wants", cover: "assets/img/harvest-tracks/04-wants-300.webp" },
-      { n: 5, title: "Later", cover: "assets/img/harvest-tracks/05-later-300.webp" },
-      { n: 6, title: "Dirty Money", cover: "assets/img/harvest-tracks/06-dirty-money-300.webp" },
-      { n: 7, title: "I Can Still Fight", cover: "assets/img/harvest-tracks/07-i-can-still-fight-300.webp" },
-      { n: 8, title: "I Put It Down", cover: "assets/img/harvest-tracks/08-i-put-it-down-300.webp" },
-      { n: 9, title: "Times Like Dying", cover: "assets/img/harvest-tracks/09-times-like-dying-300.webp" },
-      { n: 10, title: "Get Mine", cover: "assets/img/harvest-tracks/10-get-mine-300.webp" },
-      { n: 11, title: "Left to Reap", cover: "assets/img/harvest-tracks/11-left-to-reap-300.webp" },
-      { n: 12, title: "Get It Right (Live)", cover: "assets/img/harvest-tracks/12-get-it-right-live-300.webp" }
+      { n: 1, title: "WHAT YOU SOW", cover: "assets/img/harvest-tracks/01-what-you-sow-300.webp" },
+      { n: 2, title: "GET IT RIGHT", cover: "assets/img/harvest-tracks/02-get-it-right-300.webp" },
+      { n: 3, title: "REDLINE", cover: "assets/img/harvest-tracks/03-redline-300.webp" },
+      { n: 4, title: "WANTS", cover: "assets/img/harvest-tracks/04-wants-300.webp" },
+      { n: 5, title: "LATER", cover: "assets/img/harvest-tracks/05-later-300.webp" },
+      { n: 6, title: "DIRTY MONEY", cover: "assets/img/harvest-tracks/06-dirty-money-300.webp" },
+      { n: 7, title: "I CAN STILL FIGHT", cover: "assets/img/harvest-tracks/07-i-can-still-fight-300.webp" },
+      { n: 8, title: "I PUT IT DOWN", cover: "assets/img/harvest-tracks/08-i-put-it-down-300.webp" },
+      { n: 9, title: "TIMES LIKE DYING", cover: "assets/img/harvest-tracks/09-times-like-dying-300.webp" },
+      { n: 10, title: "GET MINE", cover: "assets/img/harvest-tracks/10-get-mine-300.webp" },
+      { n: 11, title: "LEFT TO REAP", cover: "assets/img/harvest-tracks/11-left-to-reap-300.webp" },
+      { n: 12, title: "GET IT RIGHT (LIVE)", cover: "assets/img/harvest-tracks/12-get-it-right-live-300.webp" }
     ],
     credit: "A Bridge Recording release", group: "label",
     blurb: "Twelve songs about what you plant and what comes up. Heartland garage-blues with a haze of late-'60s psychedelia: a band in a room, rough edges and all.",
@@ -106,12 +106,12 @@ window.BR_RELEASES = [
 
   // ---------- Out now: Bridge Recording artists ----------
   {
-    id: "get-it-right", artist: "Glass Canons", title: "Get It Right", kind: "Single",
+    id: "get-it-right", artist: "GLASS CANONS", title: "GET IT RIGHT", kind: "Single",
     status: "out", date: "2026-08-14",
     cover: "assets/img/glass-canons-get-it-right-600.webp", cover2x: "assets/img/glass-canons-get-it-right-1200.webp",
-    alt: "Get It Right cover: a lone figure walks a cracked desert road toward a stormy sunset",
+    alt: "GET IT RIGHT cover: a lone figure walks a cracked desert road toward a stormy sunset",
     credit: "A Bridge Recording release", group: "label",
-    blurb: "The first taste of Harvest, plus a live version with the crowd shouting it back.",
+    blurb: "The first taste of HARVEST, plus GET IT RIGHT (LIVE) with the crowd shouting it back.",
     links: [
       { label: "Apple Music", url: "https://music.apple.com/us/album/get-it-right-single/6789293259" }
     ]
@@ -132,6 +132,8 @@ window.BR_RELEASES = [
     id: "echoes", artist: "Kilynn Ross", title: "Echoes", kind: "Album",
     status: "out", dateText: "2026",
     credit: "A Bridge Recording release", group: "label",
+    cover: "assets/img/kilynn-ross-echoes-600.webp", cover2x: "assets/img/kilynn-ross-echoes-1200.webp",
+    alt: "Echoes cover: trees silhouetted against a misty sunrise over an open field",
     links: [
       { label: "Spotify", url: "https://open.spotify.com/album/7JEhYowB3mwjjSThqeqsUC" }
     ]
@@ -147,7 +149,7 @@ window.BR_RELEASES = [
 
   // ---------- Client work: Recorded, Mixed and Mastered ----------
   {
-    id: "you-knew", artist: "Glass Canons", title: "You Knew",
+    id: "you-knew", artist: "GLASS CANONS", title: "YOU KNEW",
     status: "out", credit: "Recorded, Mixed and Mastered by Bridge Recording", group: "client",
     audio: "assets/audio/glass-canons-you-knew.mp3", featured: true
   },
@@ -195,11 +197,11 @@ window.BR_RELEASES = [
 /* The Bridge Recording artists (Artists page). */
 window.BR_ARTISTS = [
   {
-    name: "Glass Canons",
+    name: "GLASS CANONS",
     tagline: "Heartland garage-blues with a neo-psychedelic haze.",
-    about: "Weathered, honest rock with dirt under its nails. The new album, Harvest, is out November 20, 2026.",
-    image: "assets/img/glass-canons-marquee-600.webp", image2x: "assets/img/glass-canons-marquee-1200.webp",
-    alt: "Glass Canons' light-up marquee letters G and C",
+    about: "Weathered, honest rock with dirt under its nails. The new album, HARVEST, is out November 20, 2026.",
+    image: "assets/img/glass-canons-harvest-600.webp", image2x: "assets/img/glass-canons-harvest-1200.webp",
+    alt: "HARVEST cover: a lone figure in a cracked, glowing field as a lightning storm rolls in",
     links: [
       { label: "Apple Music", url: "https://music.apple.com/us/artist/glass-canons/1130575273" },
       { label: "Amazon Music", url: "https://music.amazon.com/artists/B0GH86FC5H" },
@@ -225,9 +227,9 @@ window.BR_ARTISTS = [
   {
     name: "Kilynn Ross",
     tagline: "Indie folk with a baritone voice and a cinematic streak.",
-    image: "assets/img/kilynn-ross-threads-600.webp",
-    alt: "Threads cover art for Kilynn Ross",
-    about: "Kilynn Ross released the album Echoes and a run of singles in 2026. Threads is coming soon.",
+    image: "assets/img/kilynn-ross-echoes-600.webp", image2x: "assets/img/kilynn-ross-echoes-1200.webp",
+    alt: "Echoes cover: trees silhouetted against a misty sunrise over an open field",
+    about: "Kilynn Ross's album Echoes is out now, along with a run of 2026 singles. Threads is coming soon.",
     links: [
       { label: "Spotify", url: "https://open.spotify.com/artist/2rikNqHi0MMZfLOFGy0sNp" },
       { label: "Amazon Music", url: "https://music.amazon.com/artists/B0H15JT7BV" }
