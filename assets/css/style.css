@@ -192,3 +192,9 @@ noscript p{color:var(--muted)}
 }
 .more{align-self:flex-start;background:none;border:0;padding:2px 0;margin:-2px 0 4px;font:inherit;font-size:.85rem;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .more:hover,.more:focus-visible{color:var(--ink)}
+/* Work grid: same column widths as the auto-fit grid, but a partial last row is centred instead of leaving an empty slot */
+#work-grid{display:flex;flex-wrap:wrap;justify-content:center}
+#work-grid>.card{flex:0 0 100%;min-width:0}
+@media (min-width:562px){#work-grid>.card{flex-basis:calc((100% - 22px)/2)}}
+@media (min-width:834px){#work-grid>.card{flex-basis:calc((100% - 44px)/3)}}
+@media (min-width:1106px){#work-grid>.card{flex-basis:calc((100% - 66px)/4)}}
