@@ -19,6 +19,22 @@
       return '<a href="' + esc(l.url) + '"' + (ext ? ' target="_blank" rel="noopener"' : ' class="link-internal"') + '>' + esc(l.label) + '</a>';
     }).join("") + "</p>";
   }
+  var PLATFORMS = [["spotify", "Spotify"], ["apple", "Apple Music"], ["youtube", "YouTube"], ["amazon", "Amazon Music"]];
+  function streamRow(r) {
+    var st = r.stream; if (!st) return "";
+    var song = st.title || r.title;   // platform song title when it differs from the tile title
+    var items = PLATFORMS.filter(function (p) { return st[p[0]] && st[p[0]].url; }).map(function (p) {
+      var l = st[p[0]], art = l.level === "artist";
+      var who = st.artist || r.artist;
+      var aria = art ? "Open " + who + " on " + p[1] + " (artist page; " + song + " isn't on " + p[1] + ")" : "Listen to " + song + (st.artist ? " by " + st.artist : "") + " on " + p[1];
+      return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener" aria-label="' + esc(aria) + '"' +
+        (art ? ' title="' + esc(who + " artist page on " + p[1] + ". " + song + " isn't on " + p[1] + ".") + '"' : "") + ">" + esc(p[1]) + (art ? " (artist)" : "") + "</a>";
+    });
+    if (!items.length) return "";
+    var lead = r.group === "client" ? "Stream the release" : "Listen on";
+    if (st.title) lead += ", \u201c" + song + "\u201d" + (st.artist ? " by " + st.artist : "");
+    return '<div class="stream"><span class="stream-label">' + esc(lead) + ":</span>" + items.join("") + "</div>";
+  }
   function img(src, src2x, aspect, alt, cls, w2x) {
     var wh = aspect === "4/5" ? ' width="600" height="750"' : aspect === "4/3" ? ' width="600" height="450"' : ' width="600" height="600"';
     return '<img class="' + cls + '" src="' + esc(src) + '"' + (src2x ? ' srcset="' + esc(src) + ' 600w, ' + esc(src2x) + ' ' + (w2x || (aspect === "4/5" ? "1080" : "1200")) + 'w" sizes="(max-width:640px) 92vw, 360px"' : "") +
@@ -40,9 +56,10 @@
       '<p class="credit">' + esc(r.credit) + "</p>" +
       (r.credit2 ? '<p class="credit2">' + esc(r.credit2) + "</p>" : "") +
       (r.status === "early" && when ? '<p class="when">' + esc(when) + "</p>" : "") +
-      (r.blurb ? '<p class="blurb">' + esc(r.blurb) + "</p>" : "") +
+      (r.blurb ? '<p class="blurb clamp" id="blurb-' + esc(r.id) + '">' + esc(r.blurb) + '</p><button class="more" type="button" aria-expanded="false" aria-controls="blurb-' + esc(r.id) + '" hidden>Read more</button>' : "") +
+      '<div class="card-foot">' +
       (r.audio ? '<audio controls preload="none" src="' + esc(r.audio) + '" aria-label="Play ' + esc(r.artist + " – " + r.title) + '"></audio>' : "") +
-      links(r.links, r) + "</div></article>";
+      streamRow(r) + links(r.links, r) + "</div></div></article>";
   }
   function trackGrid(r) {
     if (!r.tracks || !r.tracks.length) return "";
@@ -58,7 +75,7 @@
       (r.status === "early" ? '<p class="credit">' + esc(r.credit) + (r.credit2 ? " · " + esc(r.credit2) : "") + "</p><p>" + esc(fmtDate(r)) + "</p>" : "") +
       (r.blurb ? "<p>" + esc(r.blurb) + "</p>" : "") +
       (r.audio ? '<audio controls preload="none" src="' + esc(r.audio) + '" aria-label="Play ' + esc(r.artist + " – " + r.title) + '"></audio>' : "") +
-      links(r.links, r) + trackGrid(r) + "</div></li>";
+      streamRow(r) + links(r.links, r) + trackGrid(r) + "</div></li>";
   }
   function artistCard(a) {
     var pic = a.image ? img(a.image, a.image2x, a.imageAspect, a.alt || a.name, a.imageStyle === "logo" ? "art art-logo" : "art", a.image2xW)
@@ -69,8 +86,9 @@
         var t = "<em>" + esc(r.title) + "</em>";
         if (r.audio) t = '<a href="work.html#' + esc(r.id) + '">' + t + "</a>";
         return "<li>" + t + (r.kind ? " · " + esc(r.kind) : "") + " · " + esc(r.status === "upcoming" ? (fmtDate(r) || "Coming soon") : r.status === "early" ? "Listen now" : "Out now") + "</li>"; }).join("");
-    return '<article class="card artist-card">' + pic + '<div class="card-body"><h3>' + esc(a.name) + "</h3>" +
-      '<p class="credit">' + esc(a.tagline) + "</p><p class=\"blurb\">" + esc(a.about) + "</p>" +
+    var site = a.site ? '<p class="site-btn"><a class="btn btn-primary btn-sm" href="' + esc(a.site) + '" target="_blank" rel="noopener" aria-label="Visit the official ' + esc(a.name) + ' site, ' + esc(a.site.replace(/^https?:\/\//, "")) + '">Visit the official site</a></p>' : "";
+    return '<article class="card artist-card">' + pic + '<div class="card-body"><h3>' + esc(a.name) + "</h3>" + site +
+      '<p class="credit">' + esc(a.tagline).replace(/neo-psychedelic/gi, '<span style="white-space:nowrap">$&</span>') + "</p><p class=\"blurb\">" + esc(a.about) + "</p>" +
       (latest ? '<ul class="mini">' + latest + "</ul>" : "") + links(a.links) + "</div></article>";
   }
   function sortByDate(list, dir) {
@@ -112,6 +130,21 @@
       c.hidden = !show;
     });
   });
+  // Clamped card blurbs: show "Read more" only where the text is actually cut off
+  function checkClamps() {
+    document.querySelectorAll(".blurb.clamp").forEach(function (p) {
+      var b = p.nextElementSibling; if (!b || !b.classList.contains("more")) return;
+      if (p.classList.contains("open")) { b.hidden = false; return; }
+      b.hidden = !(p.scrollHeight > p.clientHeight + 2);
+    });
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest(".more"); if (!b) return;
+    var p = b.previousElementSibling, open = p.classList.toggle("open");
+    b.setAttribute("aria-expanded", open ? "true" : "false"); b.textContent = open ? "Show less" : "Read more";
+  });
+  checkClamps(); window.addEventListener("resize", checkClamps);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(checkClamps);
   // Only one audio player at a time
   document.addEventListener("play", function (e) {
     document.querySelectorAll("audio").forEach(function (a) { if (a !== e.target) a.pause(); });
