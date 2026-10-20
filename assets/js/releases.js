@@ -196,19 +196,6 @@ window.BR_RELEASES = [
       amazon: { url: "https://music.amazon.com/albums/B0H15Q6H6R", level: "album" }
     }
   },
-  {
-    id: "every-gift", artist: "Kilynn Ross", title: "Every Gift (Adela’s Song)", kind: "Single",
-    cover: "assets/img/kilynn-ross-every-gift-600.webp", cover2x: "assets/img/kilynn-ross-every-gift-1200.webp",
-    alt: "Every Gift (Adela’s Song) cover: a guitar, photos and keepsakes on a sunlit porch, with the handwritten title Adela’s Song",
-    status: "out", dateText: "2026",
-    credit: "A Bridge Recording release", group: "label",
-    stream: {
-      spotify: { url: "https://open.spotify.com/track/7lLdLjX1A4ldryXjr0YLb4" },
-      apple: { url: "https://music.apple.com/us/album/every-gift-feat-gabriel-guerra-adelas-song/6768945654?i=6768945655" },
-      youtube: { url: "https://music.youtube.com/watch?v=u8hbn4k4s_4" },
-      amazon: { url: "https://music.amazon.com/tracks/B0H1FDMLR3" }
-    }
-  },
 
   // ---------- Client work: Recorded, Mixed and Mastered ----------
   {
