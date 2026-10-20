@@ -11,29 +11,54 @@
     return r.dateText || "";
   }
   function initials(s) { return s.split(/\s+/).map(function (w) { return w[0]; }).join("").slice(0, 2).toUpperCase(); }
+  // Accessible names for release-card links (e.g. Level Up: "StormJarl.com", "Spotify" artist page)
+  function linkLabel(l, r) {
+    if (!r) return "";
+    var t = String(l.label).replace(/^[^\w]+\s*/, "");
+    if (r.presave && l.url === r.presave && l.label === "Pre-save") return "Pre-save " + r.title + " by " + r.artist;
+    if (/^(Spotify|Apple Music|Amazon Music|YouTube|YouTube Music|Facebook|Instagram)$/.test(t))
+      return r.artist + " on " + t + (/\/artist\/|\/artists\/|\/@|facebook\.com|instagram\.com/.test(l.url) ? " (artist page)" : "");
+    if (/^[\w-]+(\.[\w-]+)+$/.test(t)) return "Visit " + t + ", the official " + r.artist + " site";
+    return t !== l.label ? t : "";
+  }
   function links(ls, r) {
     ls = (r && r.presave ? [{ label: "Pre-save", url: r.presave }] : []).concat(ls || []);
     if (!ls.length) return "";
     return '<p class="links">' + ls.map(function (l) {
       var ext = /^https?:/.test(l.url);
-      return '<a href="' + esc(l.url) + '"' + (ext ? ' target="_blank" rel="noopener"' : ' class="link-internal"') + '>' + esc(l.label) + '</a>';
+      var lab = linkLabel(l, r);
+      return '<a href="' + esc(l.url) + '"' + (ext ? ' target="_blank" rel="noopener"' : ' class="link-internal"') + (lab ? ' aria-label="' + esc(lab) + '"' : "") + '>' + esc(l.label) + '</a>';
     }).join("") + "</p>";
   }
   var PLATFORMS = [["spotify", "Spotify"], ["apple", "Apple Music"], ["youtube", "YouTube"], ["amazon", "Amazon Music"]];
+  // Streaming icon row (v3): round 44px icon buttons. Official glyphs live in assets/icons/streaming-icons.svg.
+  var SI_SPRITE = "assets/icons/streaming-icons.svg?v=si1";
+  function siName(p, url) { return p[0] === "youtube" && /^https?:\/\/music\.youtube\.com\//.test(url) ? "YouTube Music" : p[1]; }
+  function siGlyph(k) {
+    if (k === "amazon") return '<img class="si-amz" src="assets/icons/amazon-music-28.webp" srcset="assets/icons/amazon-music-28.webp 1x, assets/icons/amazon-music-56.webp 2x, assets/icons/amazon-music-84.webp 3x" width="28" height="28" alt="" aria-hidden="true">';
+    return '<svg class="si-ico" aria-hidden="true" focusable="false"><use href="' + SI_SPRITE + "#" + ({ spotify: "si-spotify", apple: "si-apple", youtube: "si-ytmusic" })[k] + '"></use></svg>';
+  }
   function streamRow(r) {
     var st = r.stream; if (!st) return "";
     var song = st.title || r.title;   // platform song title when it differs from the tile title
-    var items = PLATFORMS.filter(function (p) { return st[p[0]] && st[p[0]].url; }).map(function (p) {
-      var l = st[p[0]], art = l.level === "artist";
-      var who = st.artist || r.artist;
-      var aria = art ? "Open " + who + " on " + p[1] + " (artist page; " + song + " isn't on " + p[1] + ")" : "Listen to " + song + (st.artist ? " by " + st.artist : "") + " on " + p[1];
-      return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener" aria-label="' + esc(aria) + '"' +
-        (art ? ' title="' + esc(who + " artist page on " + p[1] + ". " + song + " isn't on " + p[1] + ".") + '"' : "") + ">" + esc(p[1]) + (art ? " (artist)" : "") + "</a>";
-    });
-    if (!items.length) return "";
+    var who = st.artist || r.artist;
+    var by = st.artist ? " by " + st.artist : "";
+    var avail = PLATFORMS.filter(function (p) { return st[p[0]] && st[p[0]].url; });
+    if (!avail.length) return "";
+    var own = avail.filter(function (p) { return st[p[0]].level !== "artist"; }), lastP = own[own.length - 1], last = lastP ? lastP[0] : null;
+    var items = avail.filter(function (p) { return st[p[0]].level !== "artist"; }).map(function (p) {
+      var url = st[p[0]].url, name = siName(p, url), aria = "Listen to " + song + by + " on " + name;
+      var a = '<a href="' + esc(url) + '" target="_blank" rel="noopener" aria-label="' + esc(aria) + '"';
+      return "<li>" + a + ' class="si' + (p[0] === last ? " si-last" : "") + '" data-tip="' + esc(name) + '">' + siGlyph(p[0]) + "</a></li>";
+    }).concat(avail.filter(function (p) { return st[p[0]].level === "artist"; }).map(function (p) {
+      // artist-page fallback (song isn't on this service): small underlined text link, not an icon
+      var url = st[p[0]].url, name = siName(p, url);
+      return '<li><a class="si-link" href="' + esc(url) + '" target="_blank" rel="noopener" aria-label="' + esc(who + " artist page on " + name + " (" + song + " isn't on " + name + ")") + '"' +
+        ' title="' + esc(who + " artist page on " + name + ". " + song + " isn't on " + name + ".") + '">' + esc(who + " on " + name) + "</a></li>";
+    }));
     var lead = r.group === "client" ? "Stream the release" : "Listen on";
     if (st.title) lead += ", \u201c" + song + "\u201d" + (st.artist ? " by " + st.artist : "");
-    return '<div class="stream"><span class="stream-label">' + esc(lead) + ":</span>" + items.join("") + "</div>";
+    return '<div class="stream"><span class="stream-label">' + esc(lead) + ':</span><ul class="si-row" aria-label="' + esc("Listen to " + song + by) + '">' + items.join("") + "</ul></div>";
   }
   function img(src, src2x, aspect, alt, cls, w2x) {
     var wh = aspect === "4/5" ? ' width="600" height="750"' : aspect === "4/3" ? ' width="600" height="450"' : ' width="600" height="600"';
