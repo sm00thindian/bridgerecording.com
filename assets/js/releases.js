@@ -37,7 +37,7 @@ window.BR_RELEASES = [
   // ---------- Early listen ----------
   {
     id: "level-up-v12kid", artist: "StormJarl", title: "Level Up (V12Kid)", kind: "Early listen",
-    status: "early", dateText: "Level Up EP out November 20, 2026 (tentative)",
+    status: "early", dateText: "Level Up EP out November 20, 2026",
     credit: "Mixed and Mastered by Bridge Recording", credit2: "In collaboration with DJ V12Kid", group: "label",
     audio: "assets/audio/stormjarl-level-up-v12kid-mix.mp3",
     cover: "assets/img/stormjarl-level-up-v12kid-600.webp", cover2x: "assets/img/stormjarl-level-up-v12kid-1080.webp", coverAspect: "4/5",
@@ -53,11 +53,11 @@ window.BR_RELEASES = [
 
   // ---------- Upcoming ----------
   {
-    id: "harvest", artist: "GLASS CANONS", title: "HARVEST", kind: "Album",
+    id: "harvest", artist: "GLASS CANONS", title: "HARVEST", kind: "Album · 12 tracks",
     status: "upcoming", date: "2026-11-20",
     cover: "assets/img/glass-canons-harvest-600.webp", cover2x: "assets/img/glass-canons-harvest-1200.webp",
     alt: "HARVEST cover: a lone figure in a cracked, glowing field as a lightning storm rolls in",
-    presave: "",   // PLACEHOLDER: add the DistroKid HyperFollow link when it exists
+    presave: "https://distrokid.com/hyperfollow/glasscanons/harvest",
     tracks: [
       { n: 1, title: "WHAT YOU SOW", cover: "assets/img/harvest-tracks/01-what-you-sow-300.webp" },
       { n: 2, title: "GET IT RIGHT", cover: "assets/img/harvest-tracks/02-get-it-right-300.webp" },
@@ -83,10 +83,10 @@ window.BR_RELEASES = [
   },
   {
     id: "level-up", artist: "StormJarl", title: "Level Up", kind: "EP",
-    status: "upcoming", date: "2026-11-20", tentative: true,
-    cover: "assets/img/stormjarl-level-up-600.webp", cover2x: "assets/img/stormjarl-level-up-1200.webp",
-    alt: "Level Up cover: a glowing stone tower climbing into a starry night sky",
-    presave: "",   // PLACEHOLDER: pre-save link not created yet
+    status: "upcoming", date: "2026-11-20",
+    cover: "assets/img/stormjarl-level-up-ep-600.webp", cover2x: "assets/img/stormjarl-level-up-ep-1200.webp",
+    alt: "Level Up EP cover by StormJarl: a glowing tower climbing into a stormy night sky",
+    presave: "https://distrokid.com/hyperfollow/stormjarl/level-up",
     tracks: [],    // PLACEHOLDER: track list not confirmed yet (add { n, title } entries)
     credit: "A Bridge Recording release", group: "label",
     blurb: "The next chapter of StormJarl's Dark Nordic Blues, with Ásdís Kjartandóttir leading the way.",
