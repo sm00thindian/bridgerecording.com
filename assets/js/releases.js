@@ -89,7 +89,7 @@ window.BR_RELEASES = [
     presave: "https://distrokid.com/hyperfollow/stormjarl/level-up",
     tracks: [],    // PLACEHOLDER: track list not confirmed yet (add { n, title } entries)
     credit: "A Bridge Recording release", group: "label",
-    blurb: "The next chapter of StormJarl's Dark Nordic Blues, with Ásdís Kjartandóttir leading the way.",
+    blurb: "The next chapter of StormJarl's Dark Nordic Metal Blues, with Ásdís Kjartandóttir leading the way.",
     links: [
       { label: "StormJarl.com", url: "https://stormjarl.com" },
       { label: "Spotify", url: "https://open.spotify.com/artist/1Ej916sW5GaDQGDkh1p8Cb" }
@@ -133,7 +133,7 @@ window.BR_RELEASES = [
     status: "out", dateText: "Out now",
     credit: "A Bridge Recording release", group: "label",
     cover: "assets/img/stormjarl-midnight-circuit-600.webp", cover2x: "assets/img/stormjarl-midnight-circuit-1200.webp",
-    blurb: "Dark Nordic Blues reaches the machine age, featuring Ásdís Kjartandóttir.",
+    blurb: "Dark Nordic Metal Blues reaches the machine age, featuring Ásdís Kjartandóttir.",
     stream: {
       spotify: { url: "https://open.spotify.com/track/163bx5fmrfSEyW6EXJ8q0P" },
       apple: { url: "https://music.apple.com/us/album/midnight-circuit-feat-%C3%A1sd%C3%ADs-kjartand%C3%B3ttir/6807490488?i=6807490489" },
@@ -313,7 +313,7 @@ window.BR_ARTISTS = [
   {
     name: "StormJarl",
     site: "https://stormjarl.com",
-    tagline: "Dark Nordic Blues.",
+    tagline: "Dark Nordic Metal Blues.",
     about: "Modern rock riffs meet the ritual pulse of the North: war drums, chanted voices and a low end you feel in your chest.",
     image: "assets/img/stormjarl-live-sq-600.webp", image2x: "assets/img/stormjarl-live-sq-1080.webp", image2xW: 1080,
     alt: "StormJarl on stage",
