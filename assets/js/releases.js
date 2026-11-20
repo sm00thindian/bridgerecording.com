@@ -57,7 +57,7 @@ window.BR_RELEASES = [
     status: "upcoming", date: "2026-11-20",
     cover: "assets/img/glass-canons-harvest-600.webp", cover2x: "assets/img/glass-canons-harvest-1200.webp",
     alt: "HARVEST cover: a lone figure in a cracked, glowing field as a lightning storm rolls in",
-    presave: "https://distrokid.com/hyperfollow/glasscanons/harvest",
+    presave: "",
     tracks: [
       { n: 1, title: "WHAT YOU SOW", cover: "assets/img/harvest-tracks/01-what-you-sow-300.webp" },
       { n: 2, title: "GET IT RIGHT", cover: "assets/img/harvest-tracks/02-get-it-right-300.webp" },
@@ -79,14 +79,19 @@ window.BR_RELEASES = [
       { label: "Facebook", url: "https://www.facebook.com/glasscanons" }
     ],
     featured: true,
-    stream: null   // PLACEHOLDER (hidden): add { spotify, apple, youtube, amazon } song/album URLs on release day; null renders nothing
+    stream: {
+      spotify: { url: "https://open.spotify.com/album/0ru8U2XI5cRnbanLR5TK62" },
+      apple: { url: "https://music.apple.com/us/album/harvest/6829136527" },
+      youtube: { url: "https://music.youtube.com/browse/MPREb_sjixMNMoMJe" },
+      amazon: { url: "https://www.amazon.com/dp/B0HPXR5NZR" }
+    }
   },
   {
     id: "level-up", artist: "StormJarl", title: "Level Up", kind: "EP",
     status: "upcoming", date: "2026-11-20",
     cover: "assets/img/stormjarl-level-up-ep-600.webp", cover2x: "assets/img/stormjarl-level-up-ep-1200.webp",
     alt: "Level Up EP cover by StormJarl: a glowing tower climbing into a stormy night sky",
-    presave: "https://distrokid.com/hyperfollow/stormjarl/level-up",
+    presave: "",
     tracks: [],    // PLACEHOLDER: track list not confirmed yet (add { n, title } entries)
     credit: "A Bridge Recording release", group: "label",
     blurb: "The next chapter of StormJarl's Dark Nordic Metal Blues, with Ásdís Kjartandóttir leading the way.",
@@ -95,7 +100,12 @@ window.BR_RELEASES = [
       { label: "Spotify", url: "https://open.spotify.com/artist/1Ej916sW5GaDQGDkh1p8Cb" }
     ],
     featured: true,
-    stream: null   // PLACEHOLDER (hidden): add { spotify, apple, youtube, amazon } song/album URLs on release day; null renders nothing
+    stream: {
+      spotify: { url: "https://open.spotify.com/album/7midUI0BdOHkD8Gnwqplnu" },
+      apple: { url: "https://music.apple.com/us/album/level-up-feat-%C3%A1sd%C3%ADs-kjartand%C3%B3ttir-single/6828679534" },
+      youtube: { url: "https://music.youtube.com/browse/MPREb_rMXvXyGROGy" },
+      amazon: { url: "https://www.amazon.com/gp/product/B0HPSC5JHV" }
+    }
   },
   {
     id: "threads", artist: "Kilynn Ross", title: "Threads",
