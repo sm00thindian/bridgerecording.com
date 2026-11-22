@@ -37,7 +37,7 @@ window.BR_RELEASES = [
   // ---------- Early listen ----------
   {
     id: "level-up-v12kid", artist: "StormJarl", title: "Level Up (V12Kid)", kind: "Early listen",
-    status: "early", dateText: "Level Up EP out November 20, 2026",
+    status: "early", dateText: "Level Up EP out now",
     credit: "Mixed and Mastered by Bridge Recording", credit2: "In collaboration with DJ V12Kid", group: "label",
     audio: "assets/audio/stormjarl-level-up-v12kid-mix.mp3",
     cover: "assets/img/stormjarl-level-up-v12kid-600.webp", cover2x: "assets/img/stormjarl-level-up-v12kid-1080.webp", coverAspect: "4/5",
@@ -53,8 +53,25 @@ window.BR_RELEASES = [
 
   // ---------- Upcoming ----------
   {
+    id: "threads", artist: "Kilynn Ross", title: "Threads",
+    status: "upcoming", dateText: "Coming soon",
+    date: "",      // PLACEHOLDER: release date unknown. Set "YYYY-MM-DD" when announced
+    cover: "assets/img/kilynn-ross-threads-600.webp", cover2x: "assets/img/kilynn-ross-threads-1200.webp",
+    alt: "Threads cover: a lone fence post on a hillside at sunset under a violet sky",
+    presave: "",   // PLACEHOLDER: pre-save link not created yet
+    credit: "A Bridge Recording release", group: "label",
+    blurb: "New music from Kilynn Ross is on the way.",
+    links: [
+      { label: "Spotify", url: "https://open.spotify.com/artist/2rikNqHi0MMZfLOFGy0sNp" }
+    ],
+    featured: true,
+    stream: null   // PLACEHOLDER (hidden): add { spotify, apple, youtube, amazon } song/album URLs on release day; null renders nothing
+  },
+
+  // ---------- Out now: Bridge Recording artists ----------
+  {
     id: "harvest", artist: "GLASS CANONS", title: "HARVEST", kind: "Album · 12 tracks",
-    status: "upcoming", date: "2026-11-20",
+    status: "out", date: "2026-11-20",
     cover: "assets/img/glass-canons-harvest-600.webp", cover2x: "assets/img/glass-canons-harvest-1200.webp",
     alt: "HARVEST cover: a lone figure in a cracked, glowing field as a lightning storm rolls in",
     presave: "",
@@ -88,7 +105,7 @@ window.BR_RELEASES = [
   },
   {
     id: "level-up", artist: "StormJarl", title: "Level Up", kind: "EP",
-    status: "upcoming", date: "2026-11-20",
+    status: "out", date: "2026-11-20",
     cover: "assets/img/stormjarl-level-up-ep-600.webp", cover2x: "assets/img/stormjarl-level-up-ep-1200.webp",
     alt: "Level Up EP cover by StormJarl: a glowing tower climbing into a stormy night sky",
     presave: "",
@@ -107,23 +124,6 @@ window.BR_RELEASES = [
       amazon: { url: "https://www.amazon.com/gp/product/B0HPSC5JHV" }
     }
   },
-  {
-    id: "threads", artist: "Kilynn Ross", title: "Threads",
-    status: "upcoming", dateText: "Coming soon",
-    date: "",      // PLACEHOLDER: release date unknown. Set "YYYY-MM-DD" when announced
-    cover: "assets/img/kilynn-ross-threads-600.webp", cover2x: "assets/img/kilynn-ross-threads-1200.webp",
-    alt: "Threads cover: a lone fence post on a hillside at sunset under a violet sky",
-    presave: "",   // PLACEHOLDER: pre-save link not created yet
-    credit: "A Bridge Recording release", group: "label",
-    blurb: "New music from Kilynn Ross is on the way.",
-    links: [
-      { label: "Spotify", url: "https://open.spotify.com/artist/2rikNqHi0MMZfLOFGy0sNp" }
-    ],
-    featured: true,
-    stream: null   // PLACEHOLDER (hidden): add { spotify, apple, youtube, amazon } song/album URLs on release day; null renders nothing
-  },
-
-  // ---------- Out now: Bridge Recording artists ----------
   {
     id: "get-it-right", artist: "GLASS CANONS", title: "GET IT RIGHT", kind: "Single",
     status: "out", date: "2026-08-14",
@@ -310,7 +310,7 @@ window.BR_ARTISTS = [
     name: "GLASS CANONS",
     site: "https://glasscanons.com",
     tagline: "Heartland garage-blues with a neo-psychedelic haze.",
-    about: "Weathered, honest rock with dirt under its nails. The new album, HARVEST, is out November 20, 2026.",
+    about: "Weathered, honest rock with dirt under its nails. The new album, HARVEST, is out now.",
     image: "assets/img/glass-canons-harvest-600.webp", image2x: "assets/img/glass-canons-harvest-1200.webp",
     alt: "HARVEST cover: a lone figure in a cracked, glowing field as a lightning storm rolls in",
     links: [
